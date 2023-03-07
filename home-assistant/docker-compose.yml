@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  home-assistant:
+    image: homeassistant/raspberrypi3-homeassistant:latest
+    container_name: home-assistant
+    volumes:
+      - data:/config
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: host
+    restart: unless-stopped
+    privileged: true
+volumes:
+  data:
+
