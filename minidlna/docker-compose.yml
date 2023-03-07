@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  minidlna:
+    image: vladgh/minidlna
+    container_name: minidlna
+    environment:
+      - MINIDLNA_MEDIA_DIR=/media
+      - MINIDLNA_FRIENDLY_NAME=ServerDLNA
+      - MINIDLNA_PORT=8200
+    volumes:
+      - /media/hd/dlna:/media
+    network_mode: "host"
+    restart: unless-stopped
