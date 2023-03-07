@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  filebrowser:
+    image: hurlenko/filebrowser:latest
+    container_name: filebrowser
+    environment:
+      - FB_BASEURL=$HOME
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - data:/data
+      - data:/config
+    ports:
+      - 8000:8080
+    restart: unless-stopped
+volumes:
+  data:
